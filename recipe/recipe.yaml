@@ -3,7 +3,7 @@ schema_version: 1
 
 context:
   name: collate-data-diff
-  version: "0.11.7"
+  version: "0.11.8"
 
 package:
   name: ${{ name|lower }}
@@ -11,7 +11,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/collate_data_diff-${{ version }}.tar.gz
-  sha256: 861294fdd82db0e34d1a6b85476844e8317deb1f15074d62032f5036a89c24ed
+  sha256: dfbc629a28cb05b390bf7bd7196083310c186d190fe0d8a486394f541ee10f9d
 
 build:
   number: 0

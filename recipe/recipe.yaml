@@ -3,7 +3,7 @@ schema_version: 1
 
 context:
   name: collate-data-diff
-  version: "0.11.10"
+  version: "0.11.11"
 
 package:
   name: ${{ name|lower }}
@@ -11,7 +11,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/collate_data_diff-${{ version }}.tar.gz
-  sha256: f13879e644edf4caaa51a0483cb51ab4290a2dfff9a3f4ae10492dc9e72a46b5
+  sha256: a54ff1f6835c2384e5a9eaa7e0a700d67384d4191953b0dffbe46ce083841f83
 
 build:
   number: 0
@@ -28,7 +28,7 @@ requirements:
     - pip
   run:
     - python >=${{ python_min }},<4.0
-    - pydantic >=1.10.12
+    - pydantic >=2.0,<3.0
     - dsnparse <0.2.0
     - click >=8.1
     - rich
@@ -37,10 +37,12 @@ requirements:
     - dbt-core >=1.0.0,<2.0.0
     - keyring
     - tabulate >=0.9.0
-    - urllib3 <2
+    - urllib3 >=2.7.0,<3.0
     - typing_extensions >=4.0.1
     - attrs >=23.1.0
     - mashumaro >=2.9,<3.11.0
+    - deepdiff >=8.6.1,<9.0
+
   run_constraints:
     - psycopg2 *
     - snowflake-connector-python >=3.13.1,<4.0.0
@@ -59,13 +61,26 @@ tests:
       imports:
         - data_diff
       pip_check: true
-      python_version: ${{ python_min }}.*
+      python_version:
+        - ${{ python_min }}.*
+        - "*"
 
 about:
-  summary: Command-line tool and Python library to efficiently diff rows across two different databases.
+  homepage: https://pypi.org/project/collate-data-diff/
   license: MIT
   license_file: LICENSE
-  homepage: https://github.com/datafold/data-diff
+  summary: Command-line tool and Python library to efficiently diff rows across two different databases.
+  repository: https://github.com/datafold/data-diff
+  documentation: https://docs.datafold.com
+  description: |
+    collate-data-diff compares rows across two different databases efficiently,
+    as both a command-line tool and a Python library. It supports cross-database
+    diffing for engines such as PostgreSQL, MySQL, Snowflake, BigQuery, Redshift,
+    Presto/Trino, Oracle, and DuckDB, and integrates with dbt.
+
+    This is Collate's (OpenMetadata) maintained fork of the now-archived
+    datafold/data-diff project; the published distribution declares
+    github.com/datafold/data-diff as its repository of record.
 
 extra:
   recipe-maintainers:

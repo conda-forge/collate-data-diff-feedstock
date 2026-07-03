@@ -3,11 +3,24 @@ About collate-data-diff-feedstock
 
 Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/collate-data-diff-feedstock/blob/main/LICENSE.txt)
 
-Home: https://github.com/datafold/data-diff
+Home: https://pypi.org/project/collate-data-diff/
 
 Package license: MIT
 
 Summary: Command-line tool and Python library to efficiently diff rows across two different databases.
+
+Development: https://github.com/datafold/data-diff
+
+Documentation: https://docs.datafold.com/
+
+collate-data-diff compares rows across two different databases efficiently,
+as both a command-line tool and a Python library. It supports cross-database
+diffing for engines such as PostgreSQL, MySQL, Snowflake, BigQuery, Redshift,
+Presto/Trino, Oracle, and DuckDB, and integrates with dbt.
+
+This is Collate's (OpenMetadata) maintained fork of the now-archived
+datafold/data-diff project; the published distribution declares
+github.com/datafold/data-diff as its repository of record.
 
 Current build status
 ====================
